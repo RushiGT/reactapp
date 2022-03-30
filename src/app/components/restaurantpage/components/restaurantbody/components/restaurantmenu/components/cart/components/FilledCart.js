@@ -4,7 +4,8 @@ import CartContext from "../../../context.js/CartContext";
 import CartItem from "./CartItem";
 function FilledCart(props) {
     let cartContext = useContext(CartContext);
-    let {cart,setCart,itemCount,setItemCount,total,setTotal,handleChange} = cartContext;
+    let {cartObject,setCartObject,getTotal} = cartContext;
+    
     return (
 
         <div>
@@ -12,11 +13,11 @@ function FilledCart(props) {
 
             <div id="cartTitle">Cart</div>
             <div id="filler1">
-                {cart.map((item)=>(<CartItem key={item.itemId} item={item} quantity={itemCount.get(item.itemId)}/>))}
+                {cartObject.cart.map((item)=>(<CartItem key={item.itemId} item={item} quantity={cartObject.itemCount.get(item.itemId)}/>))}
                     </div>
             <div id="cartTotalDiv">
                 <div id="cartTotalTitle">Subtotal</div>
-                <div id="cartTotal">$120</div>
+                <div id="cartTotal">{getTotal()}</div>
             </div>
         </div>
 

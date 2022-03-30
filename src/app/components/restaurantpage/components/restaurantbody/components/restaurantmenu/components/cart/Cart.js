@@ -5,24 +5,12 @@ import image from "./constants/Cart_empty_image.png"
 import EmptyCart from "./components/EmptyCart";
 import FilledCart from "./components/FilledCart"
 function Cart () 
-{   let cartContext = useContext(CartContext);
-    // let {cart,setCart,itemCount,setItemCount,total,setTotal,handleChange} = cartContext;
-    let [cartState,setCartState] = useState(true);
-    // useEffect(()=>
-    // {
-    //     if(cart.length===0)
-    //     {
-    //         setCartState(true);
-    //     }
-    //     else 
-    //     {
-    //         setCartState(true);
-    //     }
-    // },[cart]);
+{  let cartContext = useContext(CartContext);
+    let {cartObject,setCartObject} = cartContext;
+    
      return (
         <div className="filler">
-        {cartState && <EmptyCart /> }
-        {!cartState && <FilledCart/>}
+        { cartObject.cart.length ? <FilledCart />:<EmptyCart />}
         </div>
      );
 }

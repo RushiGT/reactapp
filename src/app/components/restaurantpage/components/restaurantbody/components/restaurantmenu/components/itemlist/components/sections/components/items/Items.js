@@ -9,7 +9,7 @@ let initialButtonState = 1;
 function Items(props) {
   
     let { item } = props;
-    let [buttonState, setbuttonState] = useState(initialButtonState);
+   
      
     return (
         <div className="itemFull" id={item.itemId}>
@@ -21,7 +21,7 @@ function Items(props) {
             </div>
             <div className="imageAndButtonDiv" id={item.itemId+"image"}>
                 <img className="itemimage" src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/svwiyc9assj6qorpdji0" />
-                    <Button buttonState ={buttonState} setbuttonState={setbuttonState} item = {item}  />
+                    <Button item = {item}  />
             </div>
         </div>
     );

@@ -37,7 +37,7 @@ function Sectionlist(props)
 return (
      <ul id="varieties">
          { menu.map(
-             (section)=> (<Onlysection  key = {section.sectionId} sectionId = {section.sectionId} sectionName = {section.sectionName}  />) //firstflag={section.sectionId===menu[0].sectionId?true:false}
+             (section)=> (<Onlysection  key = {section.sectionId} sectionId = {section.sectionId} sectionName = {section.sectionName}  firstflag={section.sectionId===menu[0].sectionId?true:false}/>) //firstflag={section.sectionId===menu[0].sectionId?true:false}
          ) }
      </ul>
 );
