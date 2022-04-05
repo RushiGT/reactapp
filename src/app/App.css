@@ -499,10 +499,10 @@ body {
     text-transform: uppercase;
 
 }
-.Veg    
+.itemType  
 {   font-size: 10px;
     font-weight: 500;
-    color: #3e4152;
+    
 } 
 .itemvalue 
 {    font-size: 16px;   
@@ -765,6 +765,7 @@ border-left: 0.5px solid rgb(180, 180, 180);
     border-right: 1px solid #ced0d3;
     background-color: white;
     padding: 0px 8px;
+    cursor: pointer;
 }
 .plus
 {
@@ -773,8 +774,11 @@ border-left: 0.5px solid rgb(180, 180, 180);
     border-left: 1px solid #ced0d3;
     background-color: white;
     padding: 0px 8px;
+    cursor : pointer ;
     
 }
+
+
 .cartitem
 {
     font-family: ProximaNova, sans-serif, Helvetica Neue ;
@@ -799,9 +803,15 @@ border-left: 0.5px solid rgb(180, 180, 180);
 {
     flex:0.2;
     font-size: 8px;
-    color: #60b246;
-   
 
+}
+.Veg
+{
+     color: rgb(5, 155, 5);
+}
+.NonVeg
+{
+     color: red;
 }
 .cartItemName
 {  
@@ -831,22 +841,34 @@ border-left: 0.5px solid rgb(180, 180, 180);
 }
 #cartTotalTitle
 {
-    display: inline-block;
-    margin-right:  100px;
+    flex: 1;
+    text-align: start;
 }
 #cartTotal 
 {
-display: inline-block;
+    text-align: end;
+
+flex: 1;
 }
 
 #cartTotalDiv
 {  
     font-size: 18px;
     font-weight: 600;
+    text-align: end;
+    margin-right: 255px;
+    display: flex;
+    flex-direction: row;
 }
 
 #cartTitle
 {
     font-size: 32px;
     font-weight: 600;
+}
+
+#cartTotalItems 
+{ font-weight: 300;
+    color: rgba(40,44,63,.45);
+    font-size: 14px;
 }

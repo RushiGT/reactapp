@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useCallback, useContext } from "react";
 import Appcontext from '../../../../../../context/Appcontext';
 import Offer from "./components/Offer";
 
-function Restarurantdetails() {
+function Restarurantdetails(props) {
     let restaurant = useContext(Appcontext);
     let { restaurantName, speciality, address, ratings, usersRat, deliveryTime, averagePriceForTwo, offers } = restaurant;
-
+    let {vegState} = props;
+    let {onlyVeg,setOnlyVeg} = vegState;
+    
     return (
         <div className="lgo">
 
@@ -44,9 +46,9 @@ function Restarurantdetails() {
                         <input type="text" placeholder="Search for dishes..." className="srchpl" style={{ fontWeight: 600 }} />
                     </div>
                     <div className="search2">
-                        <input type="checkbox" className="search2x" /> Veg Only
+                        <input type="checkbox" checked={onlyVeg} onChange={(e)=>{setOnlyVeg(e.target.checked)}} className="search2x" /> Veg Only
                     </div>
-
+                   
                     <div className="search3">
                         <span className="favicn">&amp;&amp; </span> <span className="favtxt">Favourite</span>
                     </div>
@@ -58,19 +60,6 @@ function Restarurantdetails() {
                 <div className="offer1"> Offer</div>
                 <div className="offer2">
                     <div className="offe">
-                        {/* <div className="offer3 off2e">
-                        <div className="off3c">**</div>
-                        <div className="off3c">
-                            <span className="spbre">60% off up to ₹120</span><span>Use code TRYNEW</span>
-                        </div>
-                    </div>
-                    <div className="off2e">
-                        <div className="off3c">**</div>
-                        <div className="off3c">
-                            <span className="spbre">25% off</span><span>Use code PARTY</span>
-                        </div> 
-
-                    </div>*/}
                         {offers.map(offer =>
                             <Offer key={offer.code} offer={offer} />
                         )}
