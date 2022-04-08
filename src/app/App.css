@@ -157,6 +157,7 @@ body {
     flex-shrink: 0;
     margin-right: 0px;
     margin-left: 45px;
+    
 
 } 
 .cart {
@@ -872,3 +873,10 @@ flex: 1;
     color: rgba(40,44,63,.45);
     font-size: 14px;
 }
+
+.LinkClass 
+{
+    text-decoration: none;
+    color: inherit;
+}
+

@@ -7,20 +7,25 @@ import { KITCHENS_OF_PUNJAB } from './constants/restaurants';
 import Actions from './constants/Action';
 import store from '../../../redux/store';
 import { Provider } from 'react-redux';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import LoginPage from './components/login';
 
 function Restaurantpage() {
   
   return (
     <InfoProvider value={KITCHENS_OF_PUNJAB}>
     <Provider store ={store}>
-
-      <Navbar />
+      <Routes>
+      <Route path = "/" element= {<><Navbar />
       <Restaurantbody />
-      <Footer />
+      <Footer /></>} />
+      
+      <Route path = "/Login" element ={<LoginPage/>}/>
+      </Routes>
       </Provider>
-
     </InfoProvider>
   );
+
 }
 
 export default Restaurantpage;
