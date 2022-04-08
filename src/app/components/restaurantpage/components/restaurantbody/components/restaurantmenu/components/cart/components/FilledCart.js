@@ -2,9 +2,11 @@ import React from "react";
 import { useContext ,useState,useReducer} from "react";
 import CartContext from "../../../context.js/CartContext";
 import CartItem from "./CartItem";
+import { connect } from "react-redux";
 function FilledCart(props) {
     let cartContext = useContext(CartContext);
     let {cartObject,setCartObject,getTotal,getTotalItems} = cartContext;
+    let {cart,itemCount} = props;
     
     return (
 
@@ -14,7 +16,7 @@ function FilledCart(props) {
             <div id="cartTitle">Cart</div>
             <div id="cartTotalItems">{getTotalItems()} items</div>
             <div id="filler1">
-                {cartObject.cart.map((item)=>(<CartItem key={item.itemId} item={item} quantity={cartObject.itemCount.get(item.itemId)}/>))}
+                {cart.map((item)=>(<CartItem key={item.itemId} item={item} quantity={itemCount.get(item.itemId)}/>))}
                     </div>
             <div id="cartTotalDiv">
                 <div id="cartTotalTitle">Subtotal</div>
@@ -25,4 +27,11 @@ function FilledCart(props) {
 
     );
 }
-export default FilledCart;
+const mapStateToProps = state => {
+    return {
+        cart : state.cart.cart,
+        itemCount : state.cart.itemCount
+    }
+}
+
+export default connect(mapStateToProps)(FilledCart);

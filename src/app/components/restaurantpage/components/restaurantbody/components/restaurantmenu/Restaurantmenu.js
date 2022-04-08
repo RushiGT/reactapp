@@ -53,51 +53,6 @@ let cartObjectChanger = (currentState, action) => {
 
 }
 
-// let cartObjectChanger2 = (currentState, action) => {
-//     let newState = structuredClone(currentState);
-//     let {cart,itemCount} = newState;
-//     let {type,item} = action;
-//     if (type === "add" && !currentState.itemCount.has(item.itemId)) {
-
-//         newState.cart.push(item);
-//         newState.itemCount.set(item.itemId, 1);
-//         console.log(newState);
-//         return { ...newState };
-
-//     }
-//     else if (type === "increment") {
-
-//         let oldItemCount = newState.itemCount.get(item.itemId);
-//         newState.itemCount.set(item.itemId, oldItemCount + 1);
-//         console.log(newState);
-//         return { ...newState };
-
-//     }
-//     else if(type === "decrement"){
-//         let oldItemCount = newState.itemCount.get(item.itemId);
-//         if(oldItemCount === 1 )
-//         {
-//              newState.itemCount.delete(item.itemId);
-//              for (var i = 0; i <newState.cart.length; i++) {
-
-//                  if (newState.cart[i].itemId === item.itemId) {
-//                      newState.cart.splice(i, 1);
-//                      break;
-//                  }
-//              }
-             
-//         }
-//         else 
-//         {
-//             newState.itemCount.set(item.itemId, oldItemCount - 1);
-//         }
-//         console.log(newState);
-//         return { ...newState };
-
-//     }
-//     return currentState;
-
-// }
 
 function Restaurantmenu(props) {
     let {onlyVeg}  = props;

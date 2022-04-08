@@ -3,7 +3,9 @@ import Items from "./components/items";
 function Sections(props)
 {
     let {section,onlyVeg} = props; 
-    let onlyVegLength = useMemo(()=>{return (section.sectionContent.filter(x => x.itemType=="Veg").length)},[section]);
+    let onlyVegLength = useMemo(()=>{
+        return (section.sectionContent.filter(x => x.itemType=="Veg").length)
+    },[section]);
     return (
         <div className="menufull" id={section.sectionId + "cursor"}>
             <div className="sectionfull" id={section.sectionId+"Menu"}>{section.sectionName}</div>
