@@ -3,6 +3,7 @@ import { useContext ,useState,useReducer,useCallback} from "react";
 import CartContext from "../../../context.js/CartContext";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
+import { getCartDetails , getItemCountDetails } from "../../../../../../../../../../redux/reducers/selectors/getCartDetails";
 function FilledCart(props) {
     let cartContext = useContext(CartContext);
     let {cartObject,setCartObject} = cartContext;
@@ -48,8 +49,8 @@ function FilledCart(props) {
 }
 const mapStateToProps = state => {
     return {
-        cart : state.cart.cart,
-        itemCount : state.cart.itemCount
+        cart : getCartDetails(state),
+        itemCount : getItemCountDetails(state)
     }
 }
 

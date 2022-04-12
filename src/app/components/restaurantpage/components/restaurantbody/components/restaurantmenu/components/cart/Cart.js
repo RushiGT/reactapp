@@ -5,6 +5,7 @@ import image from "./constants/Cart_empty_image.png"
 import EmptyCart from "./components/EmptyCart";
 import FilledCart from "./components/FilledCart"
 import { connect } from "react-redux";
+import { getCartDetails,getItemCountDetails } from "../../../../../../../../../redux/reducers/selectors/getCartDetails";
 function Cart (props) 
 {  let cartContext = useContext(CartContext);
     let {cartObject,setCartObject} = cartContext;
@@ -17,8 +18,8 @@ function Cart (props)
 }
 const mapStateToProps = state => {
    return {
-       cart : state.cart.cart,
-       itemCount : state.cart.itemCount
+       cart : getCartDetails(state),
+       itemCount : getItemCountDetails(state)
    }
 }
 

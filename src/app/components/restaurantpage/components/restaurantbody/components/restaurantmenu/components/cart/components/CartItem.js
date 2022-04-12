@@ -4,6 +4,7 @@ import CartContext from "../../../context.js/CartContext";
 import Actions from "../../../../../../../constants/Action";
 import { connect } from "react-redux";
 import { add,reduce } from "../../../../../../../../../../redux/actions/CartActions";
+import { getCartDetails,getItemCountDetails } from "../../../../../../../../../../redux/reducers/selectors/getCartDetails";
 function CartItem(props) {
     
     let { item ,quantity} = props;
@@ -26,8 +27,8 @@ function CartItem(props) {
 
 const mapStateToProps = state => {
     return {
-        cart : state.cart.cart,
-        itemCount : state.cart.itemCount
+        cart : getCartDetails(state),
+        itemCount : getItemCountDetails(state)
     }
 }
 const mapDispatchToProps = dispatch => {

@@ -3,6 +3,7 @@ import CartContext from "../../context.js/CartContext";
 import Actions from "../../../../../../constants/Action";
 import { add, reduce } from "../../../../../../../../../redux/actions/CartActions";
 import { connect } from "react-redux";
+import { getCartDetails,getItemCountDetails } from "../../../../../../../../../redux/reducers/selectors/getCartDetails";
 
 function Button (props)
 {   let {item} = props;
@@ -38,8 +39,8 @@ function Button (props)
 // }
 const mapStateToProps = state => {
     return {
-        cart : state.cart.cart,
-        itemCount : state.cart.itemCount
+        cart : getCartDetails(state),
+        itemCount : getItemCountDetails(state)
     }
 }
 const mapDispatchToProps = dispatch => {
