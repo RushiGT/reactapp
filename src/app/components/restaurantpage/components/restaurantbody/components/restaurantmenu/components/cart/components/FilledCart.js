@@ -1,12 +1,9 @@
 import React from "react";
 import { useContext ,useState,useReducer,useCallback} from "react";
-import CartContext from "../../../context.js/CartContext";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
 import { getCartDetails , getItemCountDetails } from "../../../../../../../../../../redux/reducers/selectors/getCartDetails";
 function FilledCart(props) {
-    let cartContext = useContext(CartContext);
-    let {cartObject,setCartObject} = cartContext;
     let {cart,itemCount} = props;
     let getTotal =  useCallback(() => {
         let total = 0;

@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useReducer ,useContext} from "react";
-import CartContext from "../../../context.js/CartContext";
-import Actions from "../../../../../../../constants/Action";
 import { connect } from "react-redux";
 import { add,reduce } from "../../../../../../../../../../redux/actions/CartActions";
 import { getCartDetails,getItemCountDetails } from "../../../../../../../../../../redux/reducers/selectors/getCartDetails";
 function CartItem(props) {
     
     let { item ,quantity} = props;
-    let cartContext = useContext(CartContext);
-    let {cartObject,setCartObject} = cartContext;
+
      
     return (
         <div className="cartitem" id={item.itemId+"cart"}>

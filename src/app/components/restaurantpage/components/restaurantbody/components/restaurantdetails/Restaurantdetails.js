@@ -9,7 +9,7 @@ function Restarurantdetails(props) {
     let { restaurantName, speciality, address, ratings, usersRat, deliveryTime, averagePriceForTwo, offers } = restaurant;
     let {onlyVeg, updateOnlyVegPreference} = props;
     
-    //  let {onlyVeg,setOnlyVeg} = vegState;
+
     
     return (
         <div className="lgo">

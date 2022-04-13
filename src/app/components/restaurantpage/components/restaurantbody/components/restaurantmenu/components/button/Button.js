@@ -1,15 +1,11 @@
 import React, { useContext ,useEffect, useState} from "react";
-import CartContext from "../../context.js/CartContext";
-import Actions from "../../../../../../constants/Action";
 import { add, reduce } from "../../../../../../../../../redux/actions/CartActions";
 import { connect } from "react-redux";
 import { getCartDetails,getItemCountDetails } from "../../../../../../../../../redux/reducers/selectors/getCartDetails";
 
 function Button (props)
 {   let {item} = props;
-    let cartContext = useContext(CartContext);
-    let {cartObject,setCartObject} = cartContext;
-    let {itemCount,cart}  = props;
+    let {itemCount}  = props;
    
     
     return(
@@ -34,9 +30,7 @@ function Button (props)
 
     );
 }
-// () => {
-//     setCartObject({ type: Actions.add, item: item })
-// }
+
 const mapStateToProps = state => {
     return {
         cart : getCartDetails(state),

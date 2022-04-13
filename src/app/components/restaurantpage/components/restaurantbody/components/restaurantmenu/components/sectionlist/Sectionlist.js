@@ -25,8 +25,6 @@ const handleHighlight = ()=> {
 function Sectionlist(props)
 {
     const {menu} = props;
-    const [classChange,setclassChange] = useState(menu[0].sectionId);
-  
     useEffect(handleHighlight,[]);
 
 return (
