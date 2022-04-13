@@ -1,12 +1,15 @@
 import React, { useCallback, useContext } from "react";
 import Appcontext from '../../../../../../context/Appcontext';
 import Offer from "./components/Offer";
-
+import { connect } from "react-redux";
+import { updateOnlyVegPreference as updateOnlyVegPreferenceAction } from "../../../../../../../redux/actions/OnlyVegActions";
+import { getOnlyVegDetails } from "../../../../../../../redux/reducers/selectors/getOnlyVegdetails";
 function Restarurantdetails(props) {
-    let restaurant = useContext(Appcontext);
+    let {restaurant} = props;
     let { restaurantName, speciality, address, ratings, usersRat, deliveryTime, averagePriceForTwo, offers } = restaurant;
-    let {vegState} = props;
-    let {onlyVeg,setOnlyVeg} = vegState;
+    let {onlyVeg, updateOnlyVegPreference} = props;
+    
+    //  let {onlyVeg,setOnlyVeg} = vegState;
     
     return (
         <div className="lgo">
@@ -46,7 +49,9 @@ function Restarurantdetails(props) {
                         <input type="text" placeholder="Search for dishes..." className="srchpl" style={{ fontWeight: 600 }} />
                     </div>
                     <div className="search2">
-                        <input type="checkbox" checked={onlyVeg} onChange={(e)=>{setOnlyVeg(e.target.checked)}} className="search2x" /> Veg Only
+                        <input type="checkbox" checked={onlyVeg} onChange={(e)=>{ 
+                            updateOnlyVegPreference(e.target.checked)
+                        }} className="search2x" /> Veg Only
                     </div>
                    
                     <div className="search3">
@@ -59,14 +64,23 @@ function Restarurantdetails(props) {
             <div className="offer0">
                 <div className="offer1"> Offer</div>
                 <div className="offer2">
-                    <div className="offe">
-                        {offers.map(offer =>
-                            <Offer key={offer.code} offer={offer} />
+                <div className="offe">
+                        {offers.map(offer => <Offer key={offer.code} offer={offer} />
                         )}
                     </div>
                 </div>
             </div>
         </div>);
 };
+const mapStateToProps = state => {
+    return{
+    onlyVeg : getOnlyVegDetails(state),
+    restaurant : state.restaurant.data
+    }
 
-export default Restarurantdetails;
+}
+const mapDispatchToProps = {
+    updateOnlyVegPreference: updateOnlyVegPreferenceAction,
+};
+     
+export default connect(mapStateToProps,mapDispatchToProps)(Restarurantdetails);

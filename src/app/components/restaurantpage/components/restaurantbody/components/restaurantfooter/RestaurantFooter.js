@@ -1,8 +1,9 @@
 import React from "react";
 import { useContext } from "react";
 import Appcontext from '../../../../../../context/Appcontext';
-function RestaurantFooter() {
-    const {fullAddress,license} = useContext(Appcontext);
+import { connect } from "react-redux";
+function RestaurantFooter(props) {
+    const {fullAddress,license} = props.restaurant;
    return( <div className="footer0">
 
         <div className="foin">
@@ -28,5 +29,11 @@ function RestaurantFooter() {
 
     </div>);
 }
+const mapStateToProps = state => {
+    return{
+    restaurant : state.restaurant.data
+    }
 
-export default RestaurantFooter;
+};
+
+export default connect(mapStateToProps)(RestaurantFooter);

@@ -5,7 +5,10 @@ import Itemlist from "./components/itemlist";
 import Cart from "./components/cart";
 import cartData from "./cartData/cartData";
 import CartContext, { CartProvider } from "./context.js/CartContext";
+import { connect } from "react-redux";
+import { getOnlyVegDetails } from "../../../../../../../redux/reducers/selectors/getOnlyVegdetails";
 import Action from '../../../../constants/Action';
+
 let {add,reduce} = Action;
 let cartObjectChanger = (currentState, action) => {
     let newState = structuredClone(currentState);
@@ -82,7 +85,6 @@ function Restaurantmenu(props) {
     return (
         <CartProvider value={cartValues}>
             <div className="menu">
-
                 <Sectionlist menu={menu} />
                 <Itemlist menu={menu} onlyVeg = {onlyVeg}/>
                 <Cart />
@@ -91,4 +93,10 @@ function Restaurantmenu(props) {
     );
 
 };
-export default Restaurantmenu;
+const mapStateToProps = state => {
+    return{
+    onlyVeg : getOnlyVegDetails(state)
+    }
+
+}
+export default connect(mapStateToProps)(Restaurantmenu);
