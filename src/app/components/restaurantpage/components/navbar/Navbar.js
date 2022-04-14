@@ -1,7 +1,10 @@
 import React, { Component, useEffect } from 'react';
 import logo from './swiggy-logo.svg';
 import {Link} from 'react-router-dom';
-function Navbar(){
+import { connect } from 'react-redux';
+import { getTotalItems } from '../../../../../redux/reducers/selectors/getCartDetails';
+function Navbar(props){
+    let {totalItems} = props;
         return (
             <header className="head">
                 <div className="head0">
@@ -47,7 +50,7 @@ function Navbar(){
                                     <path d="M4.438 0l-2.598 5.11-1.84 26.124h34.909l-1.906-26.124-2.597-5.11z">
                                     </path>
                                 </svg>
-                                <span className="_2vS77">0</span> Cart
+                                <span className="_2vS77">{totalItems}</span> Cart
                             </a>
                             </div>
                         </div>
@@ -56,4 +59,11 @@ function Navbar(){
             </header>
         );
     };
-    export default Navbar;
+
+    const mapStateToProps = (state) => {
+        return {
+            totalItems : getTotalItems(state)
+        }
+    };
+
+    export default connect(mapStateToProps)(Navbar);
