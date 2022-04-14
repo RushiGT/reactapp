@@ -1,5 +1,4 @@
 import React, { useCallback, useContext } from "react";
-import Appcontext from '../../../../../../context/Appcontext';
 import Offer from "./components/Offer";
 import { connect } from "react-redux";
 import { updateOnlyVegPreference as updateOnlyVegPreferenceAction } from "../../../../../../../redux/actions/OnlyVegActions";

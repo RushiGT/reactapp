@@ -7,7 +7,7 @@ import { getRestaurantObjectDetails } from '../../../../../redux/reducers/select
 import { connect } from 'react-redux';
 import {  fetchRestaurant } from '../../../../../redux/actions/RestaurantActions';
 function Restaurantbody(props) {
-   let {fetchRestaurantHere} = props;
+   let {fetchRestaurantHere,restaurantObject} = props;
     useEffect(()=>{
             fetchRestaurantHere();
     },[]);
@@ -16,7 +16,7 @@ function Restaurantbody(props) {
     return (
         
         <div className="restaurantcontent">
-            {(props.restaurant.loading || Object.keys(props.restaurant.data).length === 0) ? <div className = "loading">Loading</div> : <> <Restaurantheader />
+            {(restaurantObject.loading || Object.keys(restaurantObject.data).length === 0) ? <div className = "loading">Loading</div> : <> <Restaurantheader />
             <Restarurantdetails />
             <Restaurantmenu />
             <RestaurantFooter /></>}
@@ -27,7 +27,7 @@ function Restaurantbody(props) {
 };
 const mapStateToProps = state => {
     return {
-        restaurant : getRestaurantObjectDetails(state)
+        restaurantObject : getRestaurantObjectDetails(state)
     }
 }
 const mapDispatchToProps =  

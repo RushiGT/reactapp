@@ -1,14 +1,14 @@
 import React, { useCallback, useContext, useEffect, useMemo, useReducer } from "react";
-import Appcontext from '../../../../../../context/Appcontext';
 import Sectionlist from "./components/sectionlist";
 import Itemlist from "./components/itemlist";
 import Cart from "./components/cart";
 import { connect } from "react-redux";
+import { getRestaurantDetails, getMenuDetails } from "../../../../../../../redux/reducers/selectors/getRestaurantDetails";
 import { getOnlyVegDetails } from "../../../../../../../redux/reducers/selectors/getOnlyVegdetails";
 
 function Restaurantmenu(props) {
-    let {onlyVeg}  = props;
-    let { menu } = useContext(Appcontext);
+    let {onlyVeg,menu}  = props;
+
    
 
     return (
@@ -23,8 +23,11 @@ function Restaurantmenu(props) {
 };
 const mapStateToProps = state => {
     return{
-    onlyVeg : getOnlyVegDetails(state)
+    onlyVeg : getOnlyVegDetails(state),
+    menu : getMenuDetails(state)
+    
     }
 
 }
+
 export default connect(mapStateToProps)(Restaurantmenu);
