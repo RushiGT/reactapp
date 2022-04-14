@@ -1,15 +1,15 @@
-import ActionTypes from "./ActionTypes";
+import ACTIONTYPES from "./ActionTypes";
 
 export const add =  (item) => {
 return {
-    type : ActionTypes.ADD,
+    type : ACTIONTYPES.ADD,
     item : item
 };
 }
 
 export const reduce = (item) => {
     return {
-        type : ActionTypes.REDUCE,
+        type : ACTIONTYPES.REDUCE,
         item : item
     };
 }

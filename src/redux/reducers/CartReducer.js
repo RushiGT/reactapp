@@ -1,10 +1,10 @@
-import ActionTypes from "../actions/ActionTypes";
+import ACTIONTYPES from "../actions/ActionTypes";
 const initialState ={ cart: [], itemCount: new Map() };
 const cartReducer = (currentState = initialState, {type,item}) => {
     let newState = structuredClone(currentState);
     let {cart,itemCount} = newState;
    
-    if (type === ActionTypes.ADD) {
+    if (type === ACTIONTYPES.ADD) {
         if(!currentState.itemCount.has(item.itemId))
         {
             newState.cart.push(item);
@@ -20,7 +20,7 @@ const cartReducer = (currentState = initialState, {type,item}) => {
 
     }
     
-    else if(type === ActionTypes.REDUCE){
+    else if(type === ACTIONTYPES.REDUCE){
         let oldItemCount = newState.itemCount.get(item.itemId);
         if(oldItemCount === 1 )
         {

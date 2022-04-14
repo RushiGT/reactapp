@@ -3,12 +3,13 @@ import Restaurantheader from './components/restaurantheader';
 import Restarurantdetails from './components/restaurantdetails';
 import Restaurantmenu from './components/restaurantmenu';
 import RestaurantFooter from './components/restaurantfooter';
+import { getRestaurantObjectDetails } from '../../../../../redux/reducers/selectors/getRestaurantDetails';
 import { connect } from 'react-redux';
-import { fetchMenuSuccess,fetchMenuFailure,fetchMenuRequest,fetchMenu } from '../../../../../redux/actions/MenuActions';
+import {  fetchRestaurant } from '../../../../../redux/actions/RestaurantActions';
 function Restaurantbody(props) {
-   
+   let {fetchRestaurantHere} = props;
     useEffect(()=>{
-            props.fetchMenu();
+            fetchRestaurantHere();
     },[]);
 
    
@@ -26,13 +27,13 @@ function Restaurantbody(props) {
 };
 const mapStateToProps = state => {
     return {
-        restaurant : state.restaurant
+        restaurant : getRestaurantObjectDetails(state)
     }
 }
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchMenu : () => dispatch(fetchMenu())
+const mapDispatchToProps =  
+    {
+        fetchRestaurantHere : fetchRestaurant
 
-    }
-}
+    };
+
 export default connect(mapStateToProps,mapDispatchToProps)(Restaurantbody);
