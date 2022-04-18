@@ -1,2 +1,2 @@
-import Restaurantpage from "./Restaurantpage";
-export default Restaurantpage;
+import RestaurantPage from "./RestaurantPage";
+export default RestaurantPage;

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React, { Component, useEffect } from 'react';
 import { getRestaurantDetails } from '../../../../../../../redux/reducers/selectors/getRestaurantDetails';
-function Restarurantheader(props) {
+function RestarurantHeader(props) {
     let {restaurant} = props;
     return (
         <div className="head2">
@@ -21,4 +21,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Restarurantheader);
+export default connect(mapStateToProps)(RestarurantHeader);

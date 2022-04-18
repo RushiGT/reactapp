@@ -1,2 +1,2 @@
-import Restaurantheader from './Restaurantheader';
-export default Restaurantheader;
+import RestaurantHeader from './RestaurantHeader';
+export default RestaurantHeader;

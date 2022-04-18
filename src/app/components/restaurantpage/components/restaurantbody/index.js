@@ -1,2 +1,2 @@
-import Restaurantbody from './Restaurantbody';
-export default Restaurantbody;
+import RestaurantBody from './RestaurantBody';
+export default RestaurantBody;

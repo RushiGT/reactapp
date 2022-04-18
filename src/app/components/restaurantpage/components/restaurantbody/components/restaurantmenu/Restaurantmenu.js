@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getRestaurantDetails, getMenuDetails } from "../../../../../../../redux/reducers/selectors/getRestaurantDetails";
 import { getOnlyVegDetails } from "../../../../../../../redux/reducers/selectors/getOnlyVegdetails";
 
-function Restaurantmenu(props) {
+function RestaurantMenu(props) {
     let {onlyVeg,menu}  = props;
 
    
@@ -30,4 +30,4 @@ const mapStateToProps = state => {
 
 }
 
-export default connect(mapStateToProps)(Restaurantmenu);
+export default connect(mapStateToProps)(RestaurantMenu);

@@ -3,7 +3,7 @@ import Offer from "./components/Offer";
 import { connect } from "react-redux";
 import { updateOnlyVegPreference as updateOnlyVegPreferenceAction } from "../../../../../../../redux/actions/OnlyVegActions";
 import { getOnlyVegDetails } from "../../../../../../../redux/reducers/selectors/getOnlyVegdetails";
-function Restarurantdetails(props) {
+function RestaurantDetails(props) {
     let {restaurant} = props;
     let { restaurantName, speciality, address, ratings, usersRat, deliveryTime, averagePriceForTwo, offers } = restaurant;
     let {onlyVeg, updateOnlyVegPreference} = props;
@@ -82,4 +82,4 @@ const mapDispatchToProps = {
     updateOnlyVegPreference: updateOnlyVegPreferenceAction,
 };
      
-export default connect(mapStateToProps,mapDispatchToProps)(Restarurantdetails);
+export default connect(mapStateToProps,mapDispatchToProps)(RestaurantDetails);

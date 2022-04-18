@@ -1,12 +1,12 @@
 import React, { Component, useEffect,useState ,useCallback} from 'react';
-import Restaurantheader from './components/restaurantheader';
-import Restarurantdetails from './components/restaurantdetails';
-import Restaurantmenu from './components/restaurantmenu';
-import RestaurantFooter from './components/restaurantfooter';
+import RestaurantHeader from './components/restaurantHeader';
+import RestaurantDetails from './components/restaurantDetails';
+import RestaurantMenu from './components/restaurantMenu';
+import RestaurantFooter from './components/restaurantFooter';
 import { getRestaurantObjectDetails } from '../../../../../redux/reducers/selectors/getRestaurantDetails';
 import { connect } from 'react-redux';
 import {  fetchRestaurant } from '../../../../../redux/actions/RestaurantActions';
-function Restaurantbody(props) {
+function RestaurantBody(props) {
    let {fetchRestaurantHere,restaurantObject} = props;
     useEffect(()=>{
             fetchRestaurantHere();
@@ -16,9 +16,9 @@ function Restaurantbody(props) {
     return (
         
         <div className="restaurantcontent">
-            {(restaurantObject.loading || Object.keys(restaurantObject.data).length === 0) ? <div className = "loading">Loading</div> : <> <Restaurantheader />
-            <Restarurantdetails />
-            <Restaurantmenu />
+            {(restaurantObject.loading || Object.keys(restaurantObject.data).length === 0) ? <div className = "loading">Loading</div> : <> <RestaurantHeader />
+            <RestaurantDetails />
+            <RestaurantMenu />
             <RestaurantFooter /></>}
             
             </div>
@@ -36,4 +36,4 @@ const mapDispatchToProps =
 
     };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Restaurantbody);
+export default connect(mapStateToProps,mapDispatchToProps)(RestaurantBody);

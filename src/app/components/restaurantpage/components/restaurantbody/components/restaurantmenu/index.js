@@ -1,2 +1,2 @@
-import Restaurantmenu from "./Restaurantmenu";
-export default Restaurantmenu;
+import RestaurantMenu from "./RestaurantMenu";
+export default RestaurantMenu;
