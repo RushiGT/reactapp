@@ -881,3 +881,10 @@ flex: 1;
     color: inherit;
 }
 
+.Loading 
+{
+     text-align: center;
+     padding: 500px;
+     font-family: Verdana;
+     background-color: rgb(213, 210, 210);
+}
